@@ -16,7 +16,7 @@ public class PaginationApplication {
 		SpringApplication.run(PaginationApplication.class, args);
 	}
 
-	// populate 30 Users in H2 DB
+	// populate 30 Users into H2 DB
 	@Bean
 	CommandLineRunner run(UserRepository userRepository) {
 		return args -> IntStream.rangeClosed(1, 30).forEach(i -> {
