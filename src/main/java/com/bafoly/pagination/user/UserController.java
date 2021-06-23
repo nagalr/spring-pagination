@@ -23,7 +23,7 @@ public class UserController {
      Hence, its better to use it like that, instead of accepting:
      @RequestParam(required = false, defaultValue = 1) pageSize,
      @RequestParam(required = false, defaultValue = 0) pageNumber
-     Passing them to the Controller, which will have its own logic to validate/assign-defaults.
+     Passing them to the Service, which will have its own logic to validate/assign-defaults.
      */
     @GetMapping("/api/1.0/users")
     Page<User> getUsers(Pageable page) {
