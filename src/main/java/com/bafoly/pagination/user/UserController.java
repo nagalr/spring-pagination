@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
+// needed for the Service @Autowire, the Required-Args-Ctor will include all 'final' properties.
 @RequiredArgsConstructor
 @RestController
 public class UserController {

@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-
     private final UserRepository userRepository;
 
+    // Same usage explain as in the Controller class.
     public Page<User> getUsers(Pageable page) {
         log.debug("Request in Service, page object: " + page.toString());
         return userRepository.findAll(page);
