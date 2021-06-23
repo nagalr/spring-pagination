@@ -17,14 +17,15 @@ public class UserController {
 
     /*
      Controller Receives a 'Pageable' Object.
-     This Object includes values for: pageSize, pageNumber, sort.
-     The Object will validate the values, and assign defaults when needed.
+     This Object will assign values for: pageSize, pageNumber, sort, if not passed by the user.
+     The Object will validate the values if passed as RequestParams, and assign defaults if needed.
      There are default values for the variables, can be overwritten in application.properties
      using the 'spring.data.web..' definitions.
-     Hence, its better to use it like that, instead of accepting:
+     Hence, its better to use it like that, instead of controller-method accepting:
      @RequestParam(required = false, defaultValue = 1) pageSize,
      @RequestParam(required = false, defaultValue = 0) pageNumber
-     Passing them to the Service, which will have its own logic to validate/assign-defaults.
+     Passing them on to the Service, which will have its own logic to validate/assign-defaults.
+     It's Cleaner like that.
      */
     @GetMapping("/api/1.0/users")
     Page<User> getUsers(Pageable page) {
