@@ -10,9 +10,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
+    private static final Integer DEFAULT_PAGE_NUMBER = 0;
+    private static final Integer DEFAULT_PAGE_SIZE = 1;
+
     private final UserRepository userRepository;
 
     public Page<User> getUsers(int pageNumber, int pageSize) {
+        if (pageNumber < 0) {
+            pageNumber = DEFAULT_PAGE_NUMBER;
+        }
+        if (pageSize <= 0) {
+            pageSize = DEFAULT_PAGE_SIZE;
+        }
         Pageable page = PageRequest.of(pageNumber, pageSize);
         return userRepository.findAll(page);
     }
